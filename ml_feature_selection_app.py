@@ -214,11 +214,24 @@ if run_button:
             )
             lasso.fit(X_scaled, y_enc)
 
+            # coef_df = pd.DataFrame({
+            #     "Gene": X.columns,
+            #     "Coefficient": lasso.coef_[0],
+            #     "Abs_Coefficient": np.abs(lasso.coef_[0])
+            # }).sort_values("Abs_Coefficient", ascending=False)
+
+            # lasso_sel = coef_df.head(lasso_top_n)
+
+            # st.dataframe(lasso_sel)
+            # st.download_button(
+            #     "Download LASSO CSV",
+            #     lasso_sel.to_csv(index=False),
+            #     "LASSO_Selected_Genes.csv"
+            # )
             coef_df = pd.DataFrame({
                 "Gene": X.columns,
-                "Coefficient": lasso.coef_[0],
-                "Abs_Coefficient": np.abs(lasso.coef_[0])
-            }).sort_values("Abs_Coefficient", ascending=False)
+                "Coefficient": lasso.coef_[0]
+            }).sort_values("Coefficient", ascending=False)
 
             lasso_sel = coef_df.head(lasso_top_n)
 
