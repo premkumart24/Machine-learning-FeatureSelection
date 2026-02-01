@@ -100,7 +100,7 @@ if sig_file is not None:
 
 
 expr_file = st.sidebar.file_uploader(
-    "Expression matrix (log-normalized)", type=["csv", "tsv"]
+    "Expression matrix", type=["csv", "tsv"]
 )
 
 meta_file = st.sidebar.file_uploader(
